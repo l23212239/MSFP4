@@ -164,7 +164,7 @@ La modificación simultánea de $C$ (mayor almacenamiento) y $R_2$ (eliminación
 
 El diagrama presenta de forma conjunta el **circuito eléctrico equivalente** (izquierda) y el **diagrama biológico del sistema endócrino** como modelo fenomenológico simplificado (derecha), para facilitar la identificación de las correspondencias entre ambos sistemas. En la parte inferior se resume la interpretación de cada elemento pasivo.
 
-![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biologico.jpg)
+![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biológico.jpeg)
 
 ### Circuito eléctrico equivalente
 
@@ -447,7 +447,7 @@ La evidencia de *PID Tuner* (tiempo de respuesta $\approx1.45\times10^{-3}\,\mat
 
 Estos indicadores se verificaron de forma independiente con `python-control` (`step_info`) sobre el lazo con filtro $N$: $t_r=1.30\,\mathrm{ms}$, $t_s=10.0\,\mathrm{ms}$ y $M_p=10.1\,\%$.
 
-![Ganancias y desempeño del controlador PID](./Ganancias.jpg)
+![Ganancias y desempeño del controlador PID](./Ganancias.jpeg)
 
 El controlador reduce el tiempo de establecimiento del caso de $\approx2\,\mathrm{s}$ a $\approx10\,\mathrm{ms}$ y elimina la diferencia estacionaria de $0.49\,\mathrm{V}$, a cambio de un sobreimpulso moderado de $\approx10\,\%$ que en la escala de $10\,\mathrm{s}$ aparece como un pico breve en $t=1\,\mathrm{s}$.
 
@@ -569,9 +569,9 @@ Las figuras de MATLAB y Python coinciden: el control y el caso controlado alcanz
 | Reporte del cuaderno MATLAB | [`Trejo23212239.pdf`](./Trejo23212239.pdf) |
 | Figura exportada por MATLAB/Simulink | [`Respuesta_matlab.pdf`](./Respuesta_matlab.pdf) |
 | Figura exportada por Python | [`Respuesta_python.pdf`](./Respuesta_python.pdf) |
-| Evidencia de sintonización | [`Ganancias.jpg`](./Ganancias.jpg) |
-| Diagrama biológico y circuito | [`Diagrama_biologico.jpg`](./Diagrama_biologico.jpg) |
-| Fotografía del montaje experimental | [`Montaje.jpg`](./Montaje.jpg) |
+| Evidencia de sintonización | [`Ganancias.jpeg`](./Ganancias.jpeg) |
+| Diagrama biológico y circuito | [`Diagrama_biológico.jpeg`](./Diagrama_biológico.jpeg) |
+| Fotografía del montaje experimental | [`Montaje_experimental.jpeg`](./Montaje_experimental.jpeg) |
 | Captura del osciloscopio | [`Respuesta_lab.bmp`](./Respuesta_lab.bmp) |
 
 ### Verificación cruzada
@@ -601,7 +601,7 @@ Se construyó en protoboard el sistema completo (circuitos RLC del control y del
 - **Planta — Caso:** $R_1=1\,\mathrm{k}\Omega$, $C=1000\,\mu\mathrm{F}$ (capacitor electrolítico), $L=680\,\mu\mathrm{H}$ y $R_2=1\,\mathrm{k}\Omega$.
 - **Etapa de control analógica:** dos amplificadores operacionales con alimentación simétrica, resistores de precisión y red RC asociados con las acciones del controlador y el circuito restador/inversor.
 
-![Montaje experimental del sistema endócrino en protoboard](./Montaje.jpg)
+![Montaje experimental del sistema endócrino en protoboard](./Montaje_experimental.jpeg)
 
 ### Respuesta experimental en el osciloscopio
 
@@ -629,7 +629,7 @@ La captura experimental reproduce de forma consistente el comportamiento predich
 
 | Evidencia | Archivo |
 |---|---|
-| Fotografía del montaje en protoboard | [`Montaje.jpg`](./Montaje.jpg) |
+| Fotografía del montaje en protoboard | [`Montaje.jpg`](./Montaje_experimental.jpeg) |
 | Captura del osciloscopio (lazo abierto y lazo cerrado en 4 canales) | [`Respuesta_lab.bmp`](./Respuesta_lab.bmp) |
 
 [Volver al contenido](#contenido)
