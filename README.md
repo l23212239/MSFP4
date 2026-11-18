@@ -723,6 +723,7 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 ```text
 .
 ├── README.md                          # Reporte y guía de reproducción
+├── Análisis Matemático.pdf            # Desarrollo algebraico
 ├── CITATION.cff                       # Metadatos de citación (CFF 1.2.0, BSD-2-Clause)
 ├── Trejo23212239.mlx                  # Cuaderno MATLAB
 ├── Trejo23212239.pdf                  # Exportación del cuaderno
