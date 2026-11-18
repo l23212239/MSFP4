@@ -164,7 +164,7 @@ La modificación simultánea de $C$ (mayor almacenamiento) y $R_2$ (eliminación
 
 El diagrama presenta de forma conjunta el **circuito eléctrico equivalente** (izquierda) y el **diagrama biológico del sistema endócrino** como modelo fenomenológico simplificado (derecha), para facilitar la identificación de las correspondencias entre ambos sistemas. En la parte inferior se resume la interpretación de cada elemento pasivo.
 
-![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biologico.jpg)
+![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biológico.jpeg)
 
 ### Circuito eléctrico equivalente
 
@@ -447,7 +447,7 @@ La evidencia de *PID Tuner* (tiempo de respuesta $\approx1.45\times10^{-3}\,\mat
 
 Estos indicadores se verificaron de forma independiente con `python-control` (`step_info`) sobre el lazo con filtro $N$: $t_r=1.30\,\mathrm{ms}$, $t_s=10.0\,\mathrm{ms}$ y $M_p=10.1\,\%$.
 
-![Ganancias y desempeño del controlador PID](./Ganancias.jpg)
+![Ganancias y desempeño del controlador PID](./Ganancias.jpeg)
 
 El controlador reduce el tiempo de establecimiento del caso de $\approx2\,\mathrm{s}$ a $\approx10\,\mathrm{ms}$ y elimina la diferencia estacionaria de $0.49\,\mathrm{V}$, a cambio de un sobreimpulso moderado de $\approx10\,\%$ que en la escala de $10\,\mathrm{s}$ aparece como un pico breve en $t=1\,\mathrm{s}$.
 
