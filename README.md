@@ -164,7 +164,7 @@ La modificación simultánea de $C$ (mayor almacenamiento) y $R_2$ (eliminación
 
 El diagrama presenta de forma conjunta el **circuito eléctrico equivalente** (izquierda) y el **diagrama biológico del sistema endócrino** como modelo fenomenológico simplificado (derecha), para facilitar la identificación de las correspondencias entre ambos sistemas. En la parte inferior se resume la interpretación de cada elemento pasivo.
 
-![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biológico.jpeg)
+![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biologico.jpeg)
 
 ### Circuito eléctrico equivalente
 
