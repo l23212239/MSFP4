@@ -1,4 +1,5 @@
-﻿# Práctica 4 — Modelado y control del sistema endócrino
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=l23212239/MSFP4)
+ # Práctica 4 — Modelado y control del sistema endócrino
 
 Repositorio académico de la asignatura **Modelado de Sistemas Fisiológicos**, correspondiente al programa de **Ingeniería Biomédica** del Tecnológico Nacional de México / Instituto Tecnológico de Tijuana. Esta práctica (sección 5.6 del manual) integra interpretación fisiológica, analogía eléctrica, formulación matemática, análisis temporal y de estabilidad, control clásico PID, verificación computacional y diseño de un controlador analógico.
 
