@@ -1,5 +1,4 @@
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=l23212239/MSFP4)
- # Práctica 4 — Modelado y control del sistema endócrino
+﻿# Práctica 4 — Modelado y control del sistema endócrino
 
 Repositorio académico de la asignatura **Modelado de Sistemas Fisiológicos**, correspondiente al programa de **Ingeniería Biomédica** del Tecnológico Nacional de México / Instituto Tecnológico de Tijuana. Esta práctica (sección 5.6 del manual) integra interpretación fisiológica, analogía eléctrica, formulación matemática, análisis temporal y de estabilidad, control clásico PID, verificación computacional y diseño de un controlador analógico.
 
@@ -164,7 +163,7 @@ La modificación simultánea de $C$ (mayor almacenamiento) y $R_2$ (eliminación
 
 El diagrama presenta de forma conjunta el **circuito eléctrico equivalente** (izquierda) y el **diagrama biológico del sistema endócrino** como modelo fenomenológico simplificado (derecha), para facilitar la identificación de las correspondencias entre ambos sistemas. En la parte inferior se resume la interpretación de cada elemento pasivo.
 
-![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biológico.jpeg)
+![Diagrama biológico del sistema endócrino y su circuito eléctrico equivalente](./Diagrama_biologico.jpg)
 
 ### Circuito eléctrico equivalente
 
@@ -447,7 +446,7 @@ La evidencia de *PID Tuner* (tiempo de respuesta $\approx1.45\times10^{-3}\,\mat
 
 Estos indicadores se verificaron de forma independiente con `python-control` (`step_info`) sobre el lazo con filtro $N$: $t_r=1.30\,\mathrm{ms}$, $t_s=10.0\,\mathrm{ms}$ y $M_p=10.1\,\%$.
 
-![Ganancias y desempeño del controlador PID](./Ganancias.jpeg)
+![Ganancias y desempeño del controlador PID](./Ganancias.jpg)
 
 El controlador reduce el tiempo de establecimiento del caso de $\approx2\,\mathrm{s}$ a $\approx10\,\mathrm{ms}$ y elimina la diferencia estacionaria de $0.49\,\mathrm{V}$, a cambio de un sobreimpulso moderado de $\approx10\,\%$ que en la escala de $10\,\mathrm{s}$ aparece como un pico breve en $t=1\,\mathrm{s}$.
 
@@ -571,6 +570,8 @@ Las figuras de MATLAB y Python coinciden: el control y el caso controlado alcanz
 | Figura exportada por Python | [`Respuesta_python.pdf`](./Respuesta_python.pdf) |
 | Evidencia de sintonización | [`Ganancias.jpg`](./Ganancias.jpg) |
 | Diagrama biológico y circuito | [`Diagrama_biologico.jpg`](./Diagrama_biologico.jpg) |
+| Fotografía del montaje experimental | [`Montaje.jpg`](./Montaje.jpg) |
+| Captura del osciloscopio | [`Respuesta_lab.bmp`](./Respuesta_lab.bmp) |
 
 ### Verificación cruzada
 
@@ -591,28 +592,44 @@ Las diferencias pueden atribuirse al solucionador, el paso de integración, el f
 <a id="experimental"></a>
 ## Implementación experimental
 
-> Esta sección debe completarse con la evidencia del Laboratorio de Electrónica.
+Se construyó en protoboard el sistema completo (circuitos RLC del control y del caso junto con la etapa de control analógica implementada mediante dos amplificadores operacionales de 8 pines) y se registró simultáneamente la respuesta de las cuatro señales en una sola captura de un osciloscopio **OWON** de cuatro canales.
 
-### Lazo abierto
+### Montaje en protoboard
 
-- Montaje en protoboard de los circuitos de control y caso con los valores comerciales especificados.
-- Generador de funciones configurado como aproximación al escalón (onda cuadrada de baja frecuencia; el semiperiodo debe superar $5\tau\approx2.5\,\mathrm{s}$ del caso para observar el valor final; p. ej., $0.1\,\mathrm{Hz}$ con nivel bajo de $0\,\mathrm{V}$ y alto de $1\,\mathrm{V}$).
-- Registro simultáneo de $V_e(t)$ y $V_s(t)$ en el osciloscopio.
+- **Planta — Control:** $R_1=1\,\mathrm{k}\Omega$, $C=1\,\mu\mathrm{F}$, $L=680\,\mu\mathrm{H}$ (inductor axial tipo resistencia) y $R_2=100\,\mathrm{k}\Omega$.
+- **Planta — Caso:** $R_1=1\,\mathrm{k}\Omega$, $C=1000\,\mu\mathrm{F}$ (capacitor electrolítico), $L=680\,\mu\mathrm{H}$ y $R_2=1\,\mathrm{k}\Omega$.
+- **Etapa de control analógica:** dos amplificadores operacionales con alimentación simétrica, resistores de precisión y red RC asociados con las acciones del controlador y el circuito restador/inversor.
 
-### Lazo cerrado
+![Montaje experimental del sistema endócrino en protoboard](./Montaje.jpg)
 
-- Construcción del controlador PID analógico con amplificadores operacionales y alimentación simétrica.
-- Conexión con el circuito del caso y registro de las respuestas en lazo abierto y lazo cerrado.
+### Respuesta experimental en el osciloscopio
+
+El generador de funciones se configuró con una señal tipo pulso de alto ciclo de trabajo ($0\,\mathrm{V}$ a $1\,\mathrm{V}$) para aproximar experimentalmente el escalón unitario. En una misma captura de 4 canales ($500\,\mathrm{mV/div}$ en CH1–CH4, base de tiempo $M=500\,\mathrm{ms/div}$, muestreo de $1\,\mathrm{kS/s}$, profundidad de $10\,\mathrm{K}$) se observaron simultáneamente:
+
+| Canal | Trazo | Señal | Valor estacionario observado |
+|---|---|---|---|
+| **CH1** | Amarillo | Entrada $V_e(t)$ | $\approx1.0\,\mathrm{V}$ ($2\,\mathrm{div}$) |
+| **CH2** | Azul | Respuesta del control $V_{s,control}(t)$ | $\approx0.99\,\mathrm{V}$ (sigue de inmediato al escalón) |
+| **CH3** | Naranja | Respuesta del caso en lazo abierto $V_{s,caso}(t)$ | $\approx0.50\,\mathrm{V}$ ($1\,\mathrm{div}$, con transitorio exponencial lento de $\approx1.5\text{–}2\,\mathrm{s}$) |
+| **CH4** | Verde | Respuesta en lazo cerrado $PID(t)$ (tratamiento) | $\approx0.99\,\mathrm{V}$ (corrige el déficit y recupera el nivel de referencia) |
+
+![Captura del osciloscopio con las cuatro señales del sistema](./Respuesta_lab.bmp)
 
 ### Comparación entre simulación y experimentación
 
-Las diferencias deben analizarse considerando: tolerancias de resistores, capacitores e inductores; resistencia interna del inductor (especialmente relevante con $R_1=1\,\mathrm{k}\Omega$ y $R_2=1\,\mathrm{k}\Omega$); tolerancia y ESR del capacitor electrolítico de $1000\,\mu\mathrm{F}$; valores comerciales del controlador; características no ideales de los amplificadores operacionales (saturación, ancho de banda, *slew rate*); limitaciones de los instrumentos y la aproximación experimental del escalón.
+La captura experimental reproduce de forma consistente el comportamiento predicho por el análisis matemático y las simulaciones en MATLAB/Simulink y Python: el control y el sistema con controlador PID se mantienen en $\approx1\,\mathrm{V}$, mientras que el caso sin control converge a $0.5\,\mathrm{V}$ con una constante de tiempo de $\approx0.5\,\mathrm{s}$. Las pequeñas diferencias entre la simulación y el circuito físico se explican por:
+
+- Tolerancias de resistores ($\pm1\,\%$ / $\pm5\,\%$), capacitores (especialmente el electrolítico de $1000\,\mu\mathrm{F}$, típicamente $\pm20\,\%$) e inductores.
+- Resistencia serie interna ($R_{DC}$) del inductor axial, relevante frente a $R_1=1\,\mathrm{k}\Omega$ y $R_2=1\,\mathrm{k}\Omega$.
+- Resistencia serie equivalente (ESR) y corriente de fuga del capacitor electrolítico.
+- Ajuste a valores comerciales de los componentes del controlador analógico.
+- Características no ideales de los amplificadores operacionales (voltaje de *offset*, corrientes de polarización, ancho de banda y *slew rate*).
+- Ruido de cuantización y resolución vertical del osciloscopio ($500\,\mathrm{mV/div}$), así como el uso de un pulso periódico en lugar de un escalón ideal.
 
 | Evidencia | Archivo |
 |---|---|
-| Fotografías del montaje | *(pendiente)* |
-| Capturas del osciloscopio — lazo abierto | *(pendiente)* |
-| Capturas del osciloscopio — lazo cerrado | *(pendiente)* |
+| Fotografía del montaje en protoboard | [`Montaje.jpg`](./Montaje.jpg) |
+| Captura del osciloscopio (lazo abierto y lazo cerrado en 4 canales) | [`Respuesta_lab.bmp`](./Respuesta_lab.bmp) |
 
 [Volver al contenido](#contenido)
 
@@ -689,10 +706,10 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 
 ### Etapa 5. Experimentación y documentación
 
-- [ ] Montar los circuitos de control y caso en protoboard y registrar $V_e(t)$ y $V_s(t)$.
-- [ ] Montar el controlador analógico y registrar la respuesta en lazo cerrado.
-- [ ] Comparar simulación y experimentación.
-- [ ] Incorporar fotografías y capturas del osciloscopio.
+- [x] Montar los circuitos de control y caso en protoboard y registrar $V_e(t)$ y $V_s(t)$.
+- [x] Montar el controlador analógico y registrar la respuesta en lazo cerrado.
+- [x] Comparar simulación y experimentación.
+- [x] Incorporar fotografía del montaje y captura del osciloscopio.
 - [x] Incorporar `CITATION.cff` con los datos definitivos del repositorio.
 - [ ] Publicar el repositorio.
 
@@ -713,9 +730,10 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 ├── sistema.slx                        # Modelo Simulink/Simscape (EID, FT, CE y PID)
 ├── Diagrama_biologico.jpg             # Diagrama biológico y circuito equivalente
 ├── Ganancias.jpg                      # Evidencia de sintonización del PID
+├── Montaje.jpg                        # Fotografía del montaje experimental en protoboard
+├── Respuesta_lab.bmp                  # Captura del osciloscopio (4 canales)
 ├── Respuesta_matlab.pdf               # Resultado MATLAB/Simulink
-├── Respuesta_python.pdf               # Resultado Python
-└── experimental/                      # Fotografías y capturas del osciloscopio (pendiente)
+└── Respuesta_python.pdf               # Resultado Python
 ```
 
 Si algún archivo se renombra o se mueve a una subcarpeta, deben actualizarse sus rutas relativas en este README.
@@ -748,7 +766,7 @@ python -m pip install numpy matplotlib control
 
 - Protoboard, resistores, capacitores e inductor con los valores especificados.
 - Amplificadores operacionales y fuente de alimentación simétrica.
-- Generador de funciones y osciloscopio de dos canales.
+- Generador de funciones y osciloscopio de cuatro canales.
 
 ### Documentación
 
