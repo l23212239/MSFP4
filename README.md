@@ -702,7 +702,7 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 - [x] Ejecutar el modelo mediante MATLAB Live Script y exportar la figura en PDF.
 - [x] Reproducir el análisis en Python y exportar la figura en PDF.
 - [x] Calcular los componentes nominales del PID analógico.
-- [ ] Construir el PID analógico en Simscape Electrical y compararlo con el bloque ideal.
+- [x] Construir el PID analógico en Simscape Electrical y compararlo con el bloque ideal.
 - [x] Elaborar el diagrama biológico.
 
 ### Etapa 5. Experimentación y documentación
@@ -712,7 +712,6 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 - [x] Comparar simulación y experimentación.
 - [x] Incorporar fotografía del montaje y captura del osciloscopio.
 - [x] Incorporar `CITATION.cff` con los datos definitivos del repositorio.
-- [ ] Publicar el repositorio.
 
 [Volver al contenido](#contenido)
 
@@ -729,9 +728,9 @@ El procedimiento integra formulación analítica, experimentación *in silico*, 
 ├── Trejo23212239.pdf                  # Exportación del cuaderno
 ├── Trejo23212239.py                   # Implementación Python
 ├── sistema.slx                        # Modelo Simulink/Simscape (EID, FT, CE y PID)
-├── Diagrama_biologico.jpg             # Diagrama biológico y circuito equivalente
+├── Diagrama_biológico.jpeg            # Diagrama biológico y circuito equivalente
 ├── Ganancias.jpg                      # Evidencia de sintonización del PID
-├── Montaje.jpg                        # Fotografía del montaje experimental en protoboard
+├── Montaje_experimental.jpeg          # Fotografía del montaje experimental en protoboard
 ├── Respuesta_lab.bmp                  # Captura del osciloscopio (4 canales)
 ├── Respuesta_matlab.pdf               # Resultado MATLAB/Simulink
 └── Respuesta_python.pdf               # Resultado Python
